@@ -1,0 +1,166 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum Role {
+  STUDENT
+  ADMIN
+}
+
+enum ProductType {
+  COURSE
+  SKILL
+  TOOL
+}
+
+enum OrderStatus {
+  PENDING
+  PAID
+  EXPIRED
+}
+
+model User {
+  id          String       @id @default(cuid())
+  name        String
+  email       String       @unique
+  role        Role         @default(STUDENT)
+  avatar      String?
+  orders      Order[]
+  enrollments Enrollment[]
+  reviews     Review[]
+  createdAt   DateTime     @default(now()) @map("created_at")
+  updatedAt   DateTime     @updatedAt @map("updated_at")
+
+  @@map("users")
+}
+
+model Product {
+  id          String       @id @default(cuid())
+  type        ProductType
+  title       String
+  slug        String       @unique
+  description String       @db.Text
+  shortDesc   String?      @map("short_desc")
+  price       Float
+  salePrice   Float        @map("sale_price")
+  thumbnail   String
+  status      String       @default("active")
+  lessons     Lesson[]
+  orderItems  OrderItem[]
+  enrollments Enrollment[]
+  reviews     Review[]
+  createdAt   DateTime     @default(now()) @map("created_at")
+
+  @@map("products")
+}
+
+model Lesson {
+  id         String   @id @default(cuid())
+  productId  String   @map("product_id")
+  product    Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  chapter    String
+  title      String
+  videoUrl   String?  @map("video_url")
+  duration   String
+  isPreview  Boolean  @default(false) @map("is_preview")
+  notes      String?  @db.Text
+  createdAt  DateTime @default(now()) @map("created_at")
+
+  @@map("lessons")
+}
+
+model Order {
+  id            String      @id @default(cuid())
+  code          String      @unique // e.g. AIA-9824
+  userId        String?     @map("user_id")
+  user          User?       @relation(fields: [userId], references: [id])
+  customerName  String?     @map("customer_name")
+  customerEmail String?     @map("customer_email")
+  customerPhone String?     @map("customer_phone")
+  total         Float
+  status        OrderStatus @default(PENDING)
+  paymentMethod String      @default("sepay_vietqr") @map("payment_method")
+  orderItems    OrderItem[]
+  createdAt     DateTime    @default(now()) @map("created_at")
+  paidAt        DateTime?   @map("paid_at")
+
+  @@map("orders")
+}
+
+model OrderItem {
+  id        String   @id @default(cuid())
+  orderId   String   @map("order_id")
+  order     Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  productId String   @map("product_id")
+  product   Product  @relation(fields: [productId], references: [id])
+  price     Float
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@map("order_items")
+}
+
+model Enrollment {
+  id          String   @id @default(cuid())
+  userId      String   @map("user_id")
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  productId   String   @map("product_id")
+  product     Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  progress    Int      @default(0) // 0 to 100 percent
+  activatedAt DateTime @default(now()) @map("activated_at")
+
+  @@unique([userId, productId])
+  @@map("enrollments")
+}
+
+model PaymentLog {
+  id            String   @id @default(cuid())
+  sepayId       String?  @map("sepay_id")
+  amount        Float
+  content       String
+  orderCode     String?  @map("order_code")
+  accountNumber String?  @map("account_number")
+  referenceCode String?  @map("reference_code")
+  rawJson       String?  @map("raw_json") @db.Text
+  processed     Boolean  @default(false)
+  createdAt     DateTime @default(now()) @map("created_at")
+
+  @@map("payment_logs")
+}
+
+model Coupon {
+  id        String   @id @default(cuid())
+  code      String   @unique
+  discount  Float // Percentage e.g. 0.15 for 15%
+  expiresAt DateTime @map("expires_at")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@map("coupons")
+}
+
+model Review {
+  id        String   @id @default(cuid())
+  userId    String   @map("user_id")
+  user      User     @relation(fields: [userId], references: [id])
+  productId String   @map("product_id")
+  product   Product  @relation(fields: [productId], references: [id])
+  rating    Int      @default(5)
+  comment   String   @db.Text
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@map("reviews")
+}
+
+model ChatKnowledge {
+  id        String   @id @default(cuid())
+  question  String
+  answer    String   @db.Text
+  category  String?
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@map("chat_knowledge")
+}
