@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useCart } from '@/lib/cart-context';
+import { useAuth } from '@/lib/auth-context';
 import { 
   Sparkles, 
   ShoppingBag, 
@@ -11,17 +12,21 @@ import {
   Menu, 
   X, 
   User, 
-  Flame,
-  ArrowRight,
-  BookOpen,
-  Cpu,
-  Wand2,
-  Tag
+  Flame, 
+  ArrowRight, 
+  BookOpen, 
+  Cpu, 
+  Wand2, 
+  Tag, 
+  Gift, 
+  LogOut,
+  LogIn
 } from 'lucide-react';
 
 export default function Header() {
   const pathname = usePathname();
   const { totalItems } = useCart();
+  const { user, logout } = useAuth();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
@@ -39,8 +44,8 @@ export default function Header() {
     { name: 'Khóa học', href: '/khoa-hoc', icon: BookOpen },
     { name: 'Skill AI', href: '/skill-ai', icon: Wand2 },
     { name: 'Công cụ AI', href: '/cong-cu-ai', icon: Cpu },
+    { name: 'Quà tặng', href: '/qua-tang', icon: Gift, badge: 'FREE' },
     { name: 'Bảng giá', href: '/bang-gia', icon: Tag },
-    { name: 'Học viên', href: '/hoc-vien', icon: User },
     { name: 'Quản trị', href: '/admin', icon: Sparkles },
   ];
 
@@ -80,25 +85,30 @@ export default function Header() {
                   <Link
                     key={link.name}
                     href={link.href}
-                    className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all duration-200 ${
+                    className={`relative px-3 py-1.5 rounded-lg text-sm font-medium transition-all duration-200 flex items-center gap-1.5 ${
                       isActive
                         ? 'text-cyan-400 bg-white/5 border border-cyan-500/20 shadow-[0_0_15px_-3px_rgba(6,182,212,0.3)]'
                         : 'text-slate-300 hover:text-white hover:bg-white/5'
                     }`}
                   >
-                    {link.name}
+                    <span>{link.name}</span>
+                    {link.badge && (
+                      <span className="text-[9px] font-bold px-1.5 py-0.2 rounded-full bg-gradient-to-r from-amber-400 to-pink-500 text-slate-950 uppercase">
+                        {link.badge}
+                      </span>
+                    )}
                   </Link>
                 );
               })}
             </nav>
 
             {/* Right Action Icons */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 sm:gap-3">
               {/* Search Toggle */}
               <button
                 onClick={() => setSearchOpen(!searchOpen)}
                 className="p-2 rounded-lg text-slate-300 hover:text-white hover:bg-white/5 transition-colors"
-                title="Tìm kiếm khóa học & skill"
+                title="Tìm kiếm"
               >
                 <Search className="w-5 h-5" />
               </button>
@@ -117,14 +127,50 @@ export default function Header() {
                 )}
               </Link>
 
-              {/* Auth / Student Dashboard Button */}
-              <Link
-                href="/hoc-vien"
-                className="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold bg-gradient-to-r from-purple-600 via-indigo-600 to-cyan-500 text-white shadow-lg shadow-purple-500/25 hover:shadow-cyan-500/35 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
-              >
-                <User className="w-4 h-4" />
-                <span>Vào Lớp Học</span>
-              </Link>
+              {/* Auth User State / Login & Register buttons */}
+              {user ? (
+                <div className="hidden sm:flex items-center gap-2">
+                  <Link
+                    href="/hoc-vien"
+                    className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white text-xs font-semibold transition-all"
+                  >
+                    <img
+                      src={user.avatar}
+                      alt={user.name}
+                      className="w-5 h-5 rounded-full object-cover ring-1 ring-cyan-400"
+                    />
+                    <span className="truncate max-w-[90px]">{user.name}</span>
+                  </Link>
+                  <Link
+                    href="/hoc-vien"
+                    className="px-3.5 py-1.5 rounded-xl text-xs font-bold bg-gradient-to-r from-purple-600 to-cyan-500 text-white shadow-md shadow-purple-500/25 hover:scale-[1.02] transition-all"
+                  >
+                    Lớp Học
+                  </Link>
+                  <button
+                    onClick={logout}
+                    title="Đăng xuất"
+                    className="p-1.5 rounded-lg text-slate-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors"
+                  >
+                    <LogOut className="w-4 h-4" />
+                  </button>
+                </div>
+              ) : (
+                <div className="hidden sm:flex items-center gap-2">
+                  <Link
+                    href="/dang-nhap"
+                    className="px-3 py-1.5 rounded-xl text-xs font-semibold text-slate-300 hover:text-white hover:bg-white/5 transition-all"
+                  >
+                    Đăng nhập
+                  </Link>
+                  <Link
+                    href="/dang-ky"
+                    className="px-3.5 py-1.5 rounded-xl text-xs font-bold bg-gradient-to-r from-purple-600 to-cyan-500 text-white shadow-md shadow-purple-500/25 hover:scale-[1.02] transition-all"
+                  >
+                    Đăng ký
+                  </Link>
+                </div>
+              )}
 
               {/* Mobile Menu Button */}
               <button
@@ -161,7 +207,7 @@ export default function Header() {
 
         {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (
-          <div className="md:hidden fixed inset-x-0 top-[73px] bg-[#0b0f1a]/95 backdrop-blur-2xl border-b border-white/10 px-4 py-6 space-y-3 shadow-2xl">
+          <div className="md:hidden fixed inset-x-0 top-[73px] bg-[#0b0f1a]/95 backdrop-blur-2xl border-b border-white/10 px-4 py-6 space-y-3 shadow-2xl max-h-[85vh] overflow-y-auto">
             {navLinks.map((link) => {
               const Icon = link.icon;
               return (
@@ -169,23 +215,62 @@ export default function Header() {
                   key={link.name}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium text-slate-200 hover:text-cyan-400 hover:bg-white/5 transition-colors"
+                  className="flex items-center justify-between px-4 py-3 rounded-xl text-base font-medium text-slate-200 hover:text-cyan-400 hover:bg-white/5 transition-colors"
                 >
-                  <Icon className="w-5 h-5 text-purple-400" />
-                  <span>{link.name}</span>
+                  <div className="flex items-center gap-3">
+                    <Icon className="w-5 h-5 text-purple-400" />
+                    <span>{link.name}</span>
+                  </div>
+                  {link.badge && (
+                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-400 text-slate-950">
+                      {link.badge}
+                    </span>
+                  )}
                 </Link>
               );
             })}
-            <div className="pt-4 border-t border-white/10">
-              <Link
-                href="/hoc-vien"
-                onClick={() => setMobileMenuOpen(false)}
-                className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-cyan-500 text-white font-semibold shadow-lg shadow-purple-500/25"
-              >
-                <User className="w-4 h-4" />
-                <span>Bảng điều khiển học viên</span>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
+
+            <div className="pt-4 border-t border-white/10 space-y-2">
+              {user ? (
+                <>
+                  <Link
+                    href="/hoc-vien"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-cyan-500 text-white font-semibold shadow-lg shadow-purple-500/25"
+                  >
+                    <User className="w-4 h-4" />
+                    <span>Vào lớp học ({user.name})</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                  <button
+                    onClick={() => {
+                      logout();
+                      setMobileMenuOpen(false);
+                    }}
+                    className="w-full py-2.5 rounded-xl bg-rose-500/10 text-rose-400 text-xs font-bold flex items-center justify-center gap-2"
+                  >
+                    <LogOut className="w-4 h-4" />
+                    <span>Đăng xuất tài khoản</span>
+                  </button>
+                </>
+              ) : (
+                <div className="grid grid-cols-2 gap-3">
+                  <Link
+                    href="/dang-nhap"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="py-3 rounded-xl bg-white/5 text-center text-sm font-semibold text-white border border-white/10"
+                  >
+                    Đăng nhập
+                  </Link>
+                  <Link
+                    href="/dang-ky"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="py-3 rounded-xl bg-gradient-to-r from-purple-600 to-cyan-500 text-center text-sm font-bold text-white shadow-lg"
+                  >
+                    Đăng ký
+                  </Link>
+                </div>
+              )}
             </div>
           </div>
         )}

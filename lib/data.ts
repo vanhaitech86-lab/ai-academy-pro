@@ -557,3 +557,86 @@ export const SEPAY_CONFIG = {
   accountHolder: 'AI ACADEMY PRO / HOANG HAI LONG',
   sampleOrderCodePrefix: 'AIA'
 };
+
+export interface FreeGift {
+  id: string;
+  title: string;
+  category: 'Ebook' | 'Prompt Pack' | 'Workflow' | 'Custom GPT' | 'Cheatsheet';
+  desc: string;
+  downloads: number;
+  format: string;
+  badge?: string;
+  thumbnail: string;
+  downloadUrl?: string;
+  author: string;
+}
+
+export const FREE_GIFTS: FreeGift[] = [
+  {
+    id: 'gift-1',
+    title: 'Ebook 100+ Công Thức Prompt Engineering Thực Chiến 2025',
+    category: 'Ebook',
+    desc: 'Cẩm nang 85 trang tổng hợp các kỹ thuật Few-shot, Chain-of-Thought và ReAct Prompting áp dụng ngay cho công việc quản trị, marketing và bán hàng.',
+    downloads: 18450,
+    format: 'File PDF (85 Trang)',
+    badge: 'Tải nhiều nhất 🔥',
+    thumbnail: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=800&q=80',
+    author: 'AI Academy Pro'
+  },
+  {
+    id: 'gift-2',
+    title: 'Kho 300+ Prompt Bán Hàng & Chăm Sóc Khách Hàng Zalo / Fanpage',
+    category: 'Prompt Pack',
+    desc: 'Tuyển tập câu lệnh giúp AI trả lời tin nhắn khách hàng tự nhiên, giải quyết từ chối giá và chốt đơn thông minh.',
+    downloads: 24200,
+    format: 'Notion Workspace + Excel',
+    badge: 'Khuyên dùng ★',
+    thumbnail: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80',
+    author: 'Hoàng Hải Long'
+  },
+  {
+    id: 'gift-3',
+    title: 'Workflow n8n Tự Động Quét & Viết Lại Tin Tức Theo Phong Cách Riêng',
+    category: 'Workflow',
+    desc: 'Kịch bản tự động chạy ngầm quét tin tức ngành, dùng Claude 3.5 tóm tắt và thông báo tóm tắt qua Telegram mỗi sáng.',
+    downloads: 9800,
+    format: 'File Blueprint .json n8n',
+    badge: 'Mới ra mắt',
+    thumbnail: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80',
+    author: 'AI Automation Lab'
+  },
+  {
+    id: 'gift-4',
+    title: 'Custom GPT: Chuyên Gia Soát Xét Hợp Đồng & Pháp Lý Doanh Nghiệp',
+    category: 'Custom GPT',
+    desc: 'Trợ lý AI được nạp sẵn các điều khoản pháp lý Việt Nam, phát hiện rủi ro và gợi ý chỉnh sửa văn bản pháp quy trong 30 giây.',
+    downloads: 14100,
+    format: 'Link OpenAI GPTs Store',
+    badge: 'Miễn phí vĩnh viễn',
+    thumbnail: 'https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=800&q=80',
+    author: 'AI Academy Pro'
+  },
+  {
+    id: 'gift-5',
+    title: 'Cheatsheet Tra Cứu Toàn Bộ Style Ánh Sáng & Góc Máy Midjourney v6',
+    category: 'Cheatsheet',
+    desc: 'Bản đồ trực quan gồm 200+ từ khóa ánh sáng điện ảnh, lens máy ảnh và thông số aspect ratio sắc nét.',
+    downloads: 21300,
+    format: 'Infographic HD 4K + PDF',
+    badge: 'Hot Visual',
+    thumbnail: 'https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=800&q=80',
+    author: 'Tuấn Art'
+  },
+  {
+    id: 'gift-6',
+    title: 'Bộ 50 Kịch Bản Video Ngắn TikTok/Reels Đạt Triệu View 2025',
+    category: 'Prompt Pack',
+    desc: 'Khung kịch bản Hook 3 giây đầu, Body giữ chân và CTA kích thích tương tác cho các nhà sáng tạo nội dung.',
+    downloads: 29800,
+    format: 'Google Docs Template',
+    badge: 'Viral Maker',
+    thumbnail: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=80',
+    author: 'Đặng Mai Phương'
+  }
+];
+

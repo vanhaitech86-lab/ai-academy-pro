@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import { CartProvider } from '@/lib/cart-context';
+import { AuthProvider } from '@/lib/auth-context';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import ChatWidget from '@/components/chatbot/ChatWidget';
@@ -31,14 +32,16 @@ export default function RootLayout({
   return (
     <html lang="vi" className={`${inter.variable} scroll-smooth dark`}>
       <body className="min-h-screen bg-[#0b0f1a] text-slate-100 flex flex-col font-sans antialiased selection:bg-purple-600 selection:text-white">
-        <CartProvider>
-          <Header />
-          <main className="flex-1">
-            {children}
-          </main>
-          <Footer />
-          <ChatWidget />
-        </CartProvider>
+        <AuthProvider>
+          <CartProvider>
+            <Header />
+            <main className="flex-1">
+              {children}
+            </main>
+            <Footer />
+            <ChatWidget />
+          </CartProvider>
+        </AuthProvider>
       </body>
     </html>
   );

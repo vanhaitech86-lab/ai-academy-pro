@@ -1,7 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Send, Sparkles, CheckCircle2, Gift } from 'lucide-react';
+import Link from 'next/link';
+import { Send, Sparkles, CheckCircle2, Gift, ArrowRight } from 'lucide-react';
 
 export default function CtaSection() {
   const [email, setEmail] = useState('');
@@ -59,6 +60,17 @@ export default function CtaSection() {
                 </button>
               </form>
             )}
+
+            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Link
+                href="/qua-tang"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/30 text-xs sm:text-sm font-bold transition-all shadow-lg"
+              >
+                <Gift className="w-4 h-4 text-amber-400" />
+                <span>Xem Toàn Bộ Kho Quà Tặng & Ebook Miễn Phí</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
 
             <p className="mt-4 text-xs text-slate-400">
               Cam kết bảo mật 100%. Không spam, bạn có thể hủy đăng ký bất cứ lúc nào.
