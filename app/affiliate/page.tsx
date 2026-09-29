@@ -21,7 +21,8 @@ import {
   ExternalLink,
   ChevronRight,
   Gift,
-  HelpCircle
+  HelpCircle,
+  X
 } from 'lucide-react';
 import { formatVND } from '@/lib/sepay';
 
@@ -33,6 +34,9 @@ export default function AffiliatePage() {
   const [generatedLink, setGeneratedLink] = useState('');
   const [copied, setCopied] = useState(false);
   const [salesCount, setSalesCount] = useState(5); // slider for calculator
+  const [showZaloModal, setShowZaloModal] = useState(false);
+  const [zaloCopied, setZaloCopied] = useState(false);
+  const ZALO_GROUP_URL = 'https://zalo.me/g/apptijq8h3nfkdg5oaju';
 
   const handleGenerateLink = (e: React.FormEvent) => {
     e.preventDefault();
@@ -79,9 +83,9 @@ export default function AffiliatePage() {
         </div>
 
         <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight">
-          Kiếm Thu Nhập Thụ Động Cùng <br />
-          <span className="bg-gradient-to-r from-amber-300 via-orange-400 to-pink-500 bg-clip-text text-transparent">
-            AI Academy Pro & HaiTech AI
+          <span className="block">Kiếm Thu Nhập Thụ Động Cùng</span>
+          <span className="block mt-1 sm:mt-2 bg-gradient-to-r from-amber-300 via-orange-400 to-pink-500 bg-clip-text text-transparent">
+            AI Academy Pro
           </span>
         </h1>
 
@@ -217,15 +221,14 @@ export default function AffiliatePage() {
 
                 <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2 border-t border-white/10 text-xs text-slate-400">
                   <span>Mã giới thiệu: <strong className="text-white">{generatedLink.split('=')[1]}</strong></span>
-                  <a
-                    href="https://zaloapp.com/qr/g/apptijq8h3nfkdg5oaju?src=qr"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-amber-400 hover:underline font-semibold flex items-center gap-1"
+                  <button
+                    type="button"
+                    onClick={() => setShowZaloModal(true)}
+                    className="text-amber-400 hover:underline font-semibold flex items-center gap-1 cursor-pointer"
                   >
                     <span>Vào Nhóm Zalo Đối Tác để nhận bài viết & video mẫu</span>
                     <ExternalLink className="w-3 h-3" />
-                  </a>
+                  </button>
                 </div>
               </div>
             )}
@@ -373,15 +376,15 @@ export default function AffiliatePage() {
           Tham gia nhóm Zalo Đối Tác Affiliate của Học Viện để được cung cấp sẵn kho hình ảnh, video ngắn, kịch bản bán hàng và được cố vấn 1-1:
         </p>
         <div className="pt-2 flex flex-wrap items-center justify-center gap-4">
-          <a
-            href="https://zaloapp.com/qr/g/apptijq8h3nfkdg5oaju?src=qr"
-            target="_blank"
-            rel="noreferrer"
-            className="px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-extrabold text-xs sm:text-sm flex items-center gap-2 shadow-lg transition-all"
+          <button
+            type="button"
+            onClick={() => setShowZaloModal(true)}
+            className="px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-extrabold text-xs sm:text-sm flex items-center gap-2 shadow-lg shadow-blue-500/30 transition-all cursor-pointer"
           >
+            <QrCode className="w-4 h-4 text-cyan-300" />
             <span>Tham Gia Nhóm Zalo Đối Tác Affiliate</span>
             <ArrowRight className="w-4 h-4" />
-          </a>
+          </button>
           <a
             href="#dang-ky-link"
             className="px-6 py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white font-bold text-xs sm:text-sm"
@@ -390,6 +393,83 @@ export default function AffiliatePage() {
           </a>
         </div>
       </div>
+
+      {/* Zalo Group QR Popup Modal */}
+      {showZaloModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-md p-4 animate-in fade-in duration-200">
+          <div className="relative w-full max-w-sm rounded-3xl bg-slate-900 border border-blue-500/40 p-6 shadow-2xl overflow-hidden text-center">
+            {/* Ambient blue glow */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-48 bg-blue-500/20 rounded-full blur-3xl pointer-events-none" />
+
+            <button
+              onClick={() => setShowZaloModal(false)}
+              className="absolute top-4 right-4 p-2 rounded-xl text-slate-400 hover:text-white hover:bg-white/10 transition-colors"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/30 text-[11px] font-bold text-blue-300 uppercase tracking-wider mb-3">
+              <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+              <span>Nhóm Zalo Đối Tác & Chăm Sóc</span>
+            </div>
+
+            <h3 className="text-base sm:text-lg font-black text-white leading-snug">
+              Quét Mã QR Vào Nhóm Zalo
+            </h3>
+
+            <p className="mt-1 text-xs text-slate-300">
+              Mở app Zalo trên điện thoại quét mã bên dưới hoặc bấm nút để tham gia nhóm ngay:
+            </p>
+
+            {/* QR Code Container */}
+            <div className="mt-4 p-3 bg-white rounded-2xl shadow-xl inline-block border-2 border-blue-400/50">
+              <img
+                src={`https://api.qrserver.com/v1/create-qr-code/?size=260x260&data=${encodeURIComponent(ZALO_GROUP_URL)}`}
+                alt="Mã QR Nhóm Zalo Đối Tác Affiliate"
+                className="w-52 h-52 rounded-xl object-contain mx-auto"
+              />
+            </div>
+
+            <div className="mt-2 text-[11px] text-slate-400 font-mono break-all select-all">
+              {ZALO_GROUP_URL}
+            </div>
+
+            <div className="mt-4 space-y-2">
+              <a
+                href={ZALO_GROUP_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="w-full py-3 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 hover:opacity-95 text-white font-extrabold text-xs flex items-center justify-center gap-2 shadow-lg shadow-blue-500/30 transition-all"
+              >
+                <span>Tham Gia Nhóm Zalo Ngay</span>
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+
+              <button
+                type="button"
+                onClick={() => {
+                  navigator.clipboard.writeText(ZALO_GROUP_URL);
+                  setZaloCopied(true);
+                  setTimeout(() => setZaloCopied(false), 2000);
+                }}
+                className="w-full py-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-xs font-semibold text-slate-300 flex items-center justify-center gap-2 transition-colors"
+              >
+                {zaloCopied ? (
+                  <>
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+                    <span className="text-emerald-400">Đã sao chép link Zalo!</span>
+                  </>
+                ) : (
+                  <>
+                    <Copy className="w-3.5 h-3.5 text-slate-400" />
+                    <span>Sao chép link nhóm Zalo</span>
+                  </>
+                )}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

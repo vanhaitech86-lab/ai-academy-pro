@@ -13,6 +13,7 @@ import {
   HelpCircle
 } from 'lucide-react';
 import { COURSES } from '@/lib/data';
+import { getClientBotConfig } from '@/lib/bot-brain';
 
 interface Message {
   id: string;
@@ -30,17 +31,17 @@ export default function ChatWidget() {
     {
       id: 'm1',
       sender: 'bot',
-      text: 'Xin chào! Tôi là Trợ lý AI của Học viện AI Academy Pro ⚡. Tôi có thể hỗ trợ bạn chọn lộ trình học AI phù hợp nhất, hướng dẫn thanh toán tự động SePay hoặc giải đáp mọi thắc mắc 24/7.',
+      text: 'Xin chào bạn thân mến! ⚡ Mình là Trợ lý AI Phượng Hoàng Lửa (Bộ não Gemini siêu tốc, thông minh và hóm hỉnh) đây! Bạn đang tìm khóa học AI thực chiến (đồng giá 686k), kho 40+ Skill AI (68k), hay muốn rinh hoa hồng 50% cùng Affiliate vậy ta? Cứ tâm sự tự nhiên với mình nhé! 😄🔥',
       timestamp: 'Vừa xong'
     }
   ]);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const quickPrompts = [
-    'Nên học khóa nào cho người mới?',
-    'Cách thanh toán tự động qua SePay?',
-    'Khóa Midjourney học xong làm được gì?',
-    'Chính sách hoàn tiền 7 ngày thế nào?'
+    'Khóa học cho người mới 686k?',
+    'Kiếm hoa hồng Affiliate 50% ra sao?',
+    'STK Techcombank thanh toán SePay?',
+    'Nhóm Zalo chăm sóc hỗ trợ 1-1'
   ];
 
   const scrollToBottom = () => {
@@ -69,10 +70,11 @@ export default function ChatWidget() {
     setIsTyping(true);
 
     try {
+      const botConfig = getClientBotConfig();
       const res = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: query })
+        body: JSON.stringify({ message: query, botConfig })
       });
 
       if (res.ok) {
@@ -166,10 +168,13 @@ export default function ChatWidget() {
               </div>
               <div>
                 <h3 className="text-sm font-bold text-white flex items-center gap-1.5">
-                  AI Academy Bot
-                  <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+                  Trợ Lý Phượng Hoàng Lửa
+                  <Sparkles className="w-3.5 h-3.5 text-amber-400 animate-spin" />
                 </h3>
-                <p className="text-[11px] text-cyan-300/80">Tư vấn khóa học & Hỗ trợ SePay 24/7</p>
+                <p className="text-[11px] text-cyan-300 flex items-center gap-1 font-medium">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                  Bộ não Gemini AI · Hài hước & Thân thiện 24/7
+                </p>
               </div>
             </div>
             <button
@@ -282,10 +287,12 @@ export default function ChatWidget() {
                 Cần người thật hỗ trợ?
               </span>
               <a
-                href="https://zaloapp.com/qr/g/apptijq8h3nfkdg5oaju?src=qr"
-                target="_blank"
-                rel="noreferrer"
-                className="text-cyan-400 hover:underline flex items-center gap-1 font-semibold"
+                href="https://zalo.me/g/apptijq8h3nfkdg5oaju"
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.dispatchEvent(new CustomEvent('open-zalo-modal'));
+                }}
+                className="text-cyan-400 hover:underline flex items-center gap-1 font-semibold cursor-pointer"
               >
                 <PhoneCall className="w-3 h-3" />
                 Nhóm Zalo Chăm Sóc

@@ -210,10 +210,12 @@ export default function SkillCarousel() {
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
                 <a
-                  href="https://zaloapp.com/qr/g/apptijq8h3nfkdg5oaju?src=qr"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="px-5 py-3 rounded-full border border-blue-400/40 bg-blue-600/20 hover:bg-blue-600/30 text-white text-xs font-semibold transition flex items-center gap-1.5"
+                  href="https://zalo.me/g/apptijq8h3nfkdg5oaju"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.dispatchEvent(new CustomEvent('open-zalo-modal'));
+                  }}
+                  className="px-5 py-3 rounded-full border border-blue-400/40 bg-blue-600/20 hover:bg-blue-600/30 text-white text-xs font-semibold transition flex items-center gap-1.5 cursor-pointer"
                 >
                   <span>Nhóm Zalo Chăm Sóc VIP</span>
                 </a>
@@ -539,10 +541,12 @@ export default function SkillCarousel() {
               </ul>
 
               <a
-                href="https://zaloapp.com/qr/g/apptijq8h3nfkdg5oaju?src=qr"
-                target="_blank"
-                rel="noreferrer"
-                className="mt-6 block w-full rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 py-3 text-center text-xs font-extrabold text-white shadow-lg transition hover:scale-[1.02]"
+                href="https://zalo.me/g/apptijq8h3nfkdg5oaju"
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.dispatchEvent(new CustomEvent('open-zalo-modal'));
+                }}
+                className="mt-6 block w-full rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 py-3 text-center text-xs font-extrabold text-white shadow-lg transition hover:scale-[1.02] cursor-pointer"
               >
                 Tham gia Nhóm Zalo Chăm Sóc & Tư Vấn →
               </a>
@@ -563,7 +567,7 @@ export default function SkillCarousel() {
             {/* QR Code */}
             <div className="my-4 p-3 bg-white rounded-2xl shadow-xl inline-block border-2 border-blue-400">
               <img
-                src="/images/zalo-group-qr.png"
+                src={`https://api.qrserver.com/v1/create-qr-code/?size=260x260&data=${encodeURIComponent('https://zalo.me/g/apptijq8h3nfkdg5oaju')}`}
                 alt="Mã QR Nhóm Zalo Quà Tặng Skill - Tool AI"
                 className="w-48 h-auto rounded-xl object-contain mx-auto"
               />
@@ -574,7 +578,7 @@ export default function SkillCarousel() {
 
             <div className="mt-2 space-y-2">
               <a
-                href="https://zaloapp.com/qr/g/apptijq8h3nfkdg5oaju?src=qr"
+                href="https://zalo.me/g/apptijq8h3nfkdg5oaju"
                 target="_blank"
                 rel="noreferrer"
                 className="block w-full rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 py-2.5 text-center text-xs font-bold text-white shadow-lg hover:opacity-95"

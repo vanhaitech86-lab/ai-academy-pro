@@ -1,11 +1,18 @@
 'use client';
 
-import React, { useState } from 'react';
-import { X, ExternalLink, Sparkles, MessageCircle } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { X, ExternalLink, Sparkles, MessageCircle, Copy, CheckCircle2 } from 'lucide-react';
 
 export default function FloatingZalo() {
   const [isOpen, setIsOpen] = useState(false);
-  const ZALO_GROUP_URL = 'https://zaloapp.com/qr/g/apptijq8h3nfkdg5oaju?src=qr';
+  const [copied, setCopied] = useState(false);
+  const ZALO_GROUP_URL = 'https://zalo.me/g/apptijq8h3nfkdg5oaju';
+
+  useEffect(() => {
+    const handleOpen = () => setIsOpen(true);
+    window.addEventListener('open-zalo-modal', handleOpen);
+    return () => window.removeEventListener('open-zalo-modal', handleOpen);
+  }, []);
 
   return (
     <>
@@ -66,12 +73,16 @@ export default function FloatingZalo() {
             </p>
 
             {/* QR Card image */}
-            <div className="mt-4 p-2.5 bg-white rounded-2xl shadow-xl inline-block border-2 border-blue-400/50">
+            <div className="mt-4 p-3 bg-white rounded-2xl shadow-xl inline-block border-2 border-blue-400/50">
               <img
-                src="/images/zalo-group-qr.png"
+                src={`https://api.qrserver.com/v1/create-qr-code/?size=260x260&data=${encodeURIComponent(ZALO_GROUP_URL)}`}
                 alt="Mã QR Nhóm Zalo Quà Tặng Skill - Tool AI"
-                className="w-56 h-auto rounded-xl object-contain mx-auto"
+                className="w-52 h-52 rounded-xl object-contain mx-auto"
               />
+            </div>
+
+            <div className="mt-2 text-[11px] text-slate-400 font-mono break-all select-all">
+              {ZALO_GROUP_URL}
             </div>
 
             <div className="mt-4 space-y-2">
@@ -79,15 +90,37 @@ export default function FloatingZalo() {
                 href={ZALO_GROUP_URL}
                 target="_blank"
                 rel="noreferrer"
-                className="w-full py-3 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 hover:opacity-95 text-white font-extrabold text-xs flex items-center justify-center gap-2 shadow-lg shadow-blue-500/30 transition-all"
+                className="w-full py-3 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 hover:opacity-95 text-white font-extrabold text-xs flex items-center justify-center gap-2 shadow-lg shadow-blue-500/30 transition-all"
               >
                 <span>Tham Gia Nhóm Zalo Ngay</span>
                 <ExternalLink className="w-3.5 h-3.5" />
               </a>
 
               <button
+                type="button"
+                onClick={() => {
+                  navigator.clipboard.writeText(ZALO_GROUP_URL);
+                  setCopied(true);
+                  setTimeout(() => setCopied(false), 2000);
+                }}
+                className="w-full py-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-xs font-semibold text-slate-300 flex items-center justify-center gap-2 transition-colors cursor-pointer"
+              >
+                {copied ? (
+                  <>
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+                    <span className="text-emerald-400">Đã sao chép link Zalo!</span>
+                  </>
+                ) : (
+                  <>
+                    <Copy className="w-3.5 h-3.5 text-slate-400" />
+                    <span>Sao chép link nhóm Zalo</span>
+                  </>
+                )}
+              </button>
+
+              <button
                 onClick={() => setIsOpen(false)}
-                className="w-full py-2 text-xs text-slate-400 hover:text-slate-300 font-semibold"
+                className="w-full py-2 text-xs text-slate-400 hover:text-slate-300 font-semibold cursor-pointer"
               >
                 Đóng cửa sổ
               </button>

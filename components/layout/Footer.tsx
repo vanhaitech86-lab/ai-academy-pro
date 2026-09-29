@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
 import { Flame, Mail, Phone, MapPin, ShieldCheck, QrCode, Heart, ArrowUpRight } from 'lucide-react';
@@ -112,10 +114,12 @@ export default function Footer() {
               <li className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-cyan-400 shrink-0" />
                 <a
-                  href="https://zaloapp.com/qr/g/apptijq8h3nfkdg5oaju?src=qr"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="hover:text-cyan-400 transition-colors"
+                  href="https://zalo.me/g/apptijq8h3nfkdg5oaju"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.dispatchEvent(new CustomEvent('open-zalo-modal'));
+                  }}
+                  className="hover:text-cyan-400 transition-colors cursor-pointer"
                 >
                   Nhóm Zalo Quà Tặng & Chăm Sóc
                 </a>
