@@ -27,10 +27,7 @@ export default function HeroSection() {
           <span className="gradient-text-neon">Tăng Tốc Công Việc</span> Gấp 10 Lần
         </h1>
 
-        {/* Short Subtitle */}
-        <p className="mt-6 text-base sm:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed font-normal">
-          Nền tảng học tập AI thực chiến, kho tài sản số (Mega Prompt, GPTs/Gems, n8n Workflow) và bộ công cụ trí tuệ nhân tạo chuyên nghiệp giúp bạn bứt phá sự nghiệp và doanh thu.
-        </p>
+
 
         {/* CTA Buttons */}
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">

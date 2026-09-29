@@ -14,10 +14,12 @@ export default function Footer() {
           {/* Col 1: Brand Info */}
           <div className="lg:col-span-2 space-y-4">
             <Link href="/" className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-purple-600 to-cyan-500 p-[1.5px]">
-                <div className="w-full h-full bg-[#0b0f1a] rounded-[10px] flex items-center justify-center">
-                  <Flame className="w-5 h-5 text-amber-400" />
-                </div>
+              <div className="w-10 h-10 rounded-xl overflow-hidden shadow-lg shadow-amber-500/30 border border-amber-400/50 shrink-0 bg-[#0b0f1a]">
+                <img
+                  src="/images/logo-phuong-hoang.png"
+                  alt="AI Academy Pro - Phượng Hoàng Lửa"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <span className="text-xl font-bold bg-gradient-to-r from-white via-cyan-200 to-purple-400 bg-clip-text text-transparent">
                 AI ACADEMY PRO

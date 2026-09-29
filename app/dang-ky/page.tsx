@@ -9,6 +9,7 @@ import {
   Flame, 
   Lock, 
   Mail, 
+  Phone,
   User, 
   Eye, 
   EyeOff, 
@@ -25,6 +26,7 @@ export default function RegisterPage() {
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -53,16 +55,22 @@ export default function RegisterPage() {
 
     setLoading(true);
     try {
-      const ok = await register(name, email, password);
-      if (ok) {
+      const res = await register(name, email, phone, password);
+      if (res.success) {
         confetti({
           particleCount: 60,
           spread: 80,
           origin: { y: 0.6 }
         });
         setTimeout(() => {
-          router.push('/hoc-vien');
+          if (email.trim().toLowerCase() === 'vanhaitech.86@gmail.com') {
+            router.push('/admin');
+          } else {
+            router.push('/hoc-vien');
+          }
         }, 600);
+      } else {
+        setError(res.message || 'Đăng ký tài khoản không thành công. Vui lòng thử lại.');
       }
     } catch {
       setError('Đăng ký tài khoản không thành công. Vui lòng thử lại.');
@@ -101,10 +109,12 @@ export default function RegisterPage() {
           {/* Brand Header */}
           <div className="text-center mb-6">
             <Link href="/" className="inline-flex items-center gap-2.5 mb-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-purple-600 via-cyan-500 to-pink-500 p-[1.5px]">
-                <div className="w-full h-full bg-[#0b0f1a] rounded-[10px] flex items-center justify-center">
-                  <Flame className="w-5 h-5 text-amber-400" />
-                </div>
+              <div className="w-10 h-10 rounded-xl overflow-hidden shadow-lg shadow-amber-500/30 border border-amber-400/50 shrink-0 bg-[#0b0f1a]">
+                <img
+                  src="/images/logo-phuong-hoang.png"
+                  alt="AI Academy Pro - Phượng Hoàng Lửa"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <span className="text-lg font-black bg-gradient-to-r from-white via-cyan-200 to-purple-400 bg-clip-text text-transparent">
                 AI ACADEMY PRO
@@ -181,6 +191,21 @@ export default function RegisterPage() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="name@example.com"
+                  className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-950 border border-white/10 text-white text-xs sm:text-sm focus:outline-none focus:border-cyan-400"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label className="text-xs font-semibold text-slate-300 block mb-1.5">Số điện thoại (dùng đăng nhập & nhận hỗ trợ)</label>
+              <div className="relative">
+                <Phone className="w-4 h-4 text-slate-500 absolute left-3.5 top-1/2 -translate-y-1/2" />
+                <input
+                  type="tel"
+                  required
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  placeholder="Ví dụ: 0988.888.999"
                   className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-950 border border-white/10 text-white text-xs sm:text-sm focus:outline-none focus:border-cyan-400"
                 />
               </div>

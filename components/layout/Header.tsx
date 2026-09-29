@@ -62,10 +62,12 @@ export default function Header() {
           <div className="flex items-center justify-between">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-3 group">
-              <div className="relative w-10 h-10 rounded-xl bg-gradient-to-tr from-purple-600 via-cyan-500 to-pink-500 p-[1.5px] transition-transform duration-300 group-hover:scale-105">
-                <div className="w-full h-full bg-[#0b0f1a] rounded-[10px] flex items-center justify-center">
-                  <Flame className="w-5 h-5 text-amber-400 animate-pulse" />
-                </div>
+              <div className="relative w-10 h-10 rounded-xl overflow-hidden shadow-lg shadow-amber-500/30 transition-transform duration-300 group-hover:scale-105 border border-amber-400/50 shrink-0 bg-[#0b0f1a]">
+                <img
+                  src="/images/logo-phuong-hoang.png"
+                  alt="AI Academy Pro - Phượng Hoàng Lửa"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div className="flex flex-col">
                 <span className="text-xl font-bold tracking-tight bg-gradient-to-r from-white via-cyan-200 to-purple-400 bg-clip-text text-transparent">
