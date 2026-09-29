@@ -113,7 +113,7 @@ export default function ChatWidget() {
     } else if (lower.includes('hoàn tiền') || lower.includes('bảo hành')) {
       reply = 'AI Academy Pro cam kết hoàn tiền 100% trong vòng 7 ngày nếu bạn không hài lòng về chất lượng khóa học và chưa học quá 25% thời lượng video.';
     } else {
-      reply = 'Cảm ơn bạn đã nhắn tin. Hệ thống của chúng tôi hỗ trợ tư vấn 1-1 qua Zalo số 0988.888.999 hoặc bạn có thể khám phá danh mục khóa học và skill ngay trên trang web nhé!';
+      reply = 'Cảm ơn bạn đã nhắn tin. Đội ngũ HaiTech AI luôn sẵn sàng hỗ trợ bạn qua Hotline 0988739896 hoặc bạn có thể bấm nút Nhóm Zalo Chăm Sóc bên dưới nhé!';
       slug = 'lam-chu-ai-chatgpt-toan-dien';
     }
 

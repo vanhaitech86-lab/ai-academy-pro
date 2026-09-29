@@ -101,7 +101,13 @@ export default function Footer() {
             <ul className="space-y-2.5 text-sm text-slate-400">
               <li className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-purple-400 shrink-0" />
-                <span>contact@aiacademy.pro</span>
+                <a href="mailto:vanhaitech.86@gmail.com" className="hover:text-cyan-400 transition-colors">
+                  vanhaitech.86@gmail.com
+                </a>
+              </li>
+              <li className="flex items-center gap-2">
+                <Phone className="w-4 h-4 text-amber-400 shrink-0" />
+                <span>Hotline: <a href="tel:0988739896" className="text-white font-bold hover:text-amber-300 transition-colors">0988739896</a></span>
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-cyan-400 shrink-0" />
@@ -128,7 +134,7 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-          <p>© {new Date().getFullYear()} AI Academy Pro - Học Viện Phượng Hoàng Lửa. Mọi quyền được bảo lưu.</p>
+          <p>© {new Date().getFullYear()} AI Academy Pro - Học Viện Phượng Hoàng Lửa. Bản quyền thuộc về HaiTech Ai.</p>
           <div className="flex items-center gap-6">
             <span>Powered by Next.js & SePay Webhook</span>
             <span className="flex items-center gap-1 text-slate-400">
