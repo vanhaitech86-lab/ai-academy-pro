@@ -19,10 +19,10 @@ export const COURSES: Product[] = [
     duration: '18 giờ · 42 bài học',
     studentsCount: 2840,
     instructor: {
-      name: 'ThS. Hoàng Hải Long',
-      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80',
-      title: 'AI Architect & Giảng viên AI Quốc tế',
-      bio: 'Hơn 8 năm kinh nghiệm ứng dụng AI vào tự động hóa doanh nghiệp và đào tạo hơn 15.000 học viên tại Việt Nam.'
+      name: 'Team Phượng Hoàng Lửa',
+      avatar: '/images/team-phuong-hoang-lua.jpg',
+      title: 'AI -AGENT Học Viện Công Nghệ Trí Tuệ Nhân Tạo Phượng Hoàng Lửa',
+      bio: 'Đội ngũ chuyên gia và AI Agent thực chiến hàng đầu tại Học Viện Công Nghệ Trí Tuệ Nhân Tạo Phượng Hoàng Lửa, cố vấn và chuyển đổi số cho hàng trăm doanh nghiệp.'
     },
     features: [
       'Nắm vững 10 khung Prompt Engineering đỉnh cao',
@@ -154,10 +154,10 @@ export const COURSES: Product[] = [
     duration: '22 giờ · 50 bài học',
     studentsCount: 1680,
     instructor: {
-      name: 'ThS. Hoàng Hải Long',
-      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80',
-      title: 'AI Architect & Giảng viên AI Quốc tế',
-      bio: 'Chuyên gia tư vấn chuyển đổi số tự động hóa cho các tập đoàn bán lẻ và giáo dục.'
+      name: 'Team Phượng Hoàng Lửa',
+      avatar: '/images/team-phuong-hoang-lua.jpg',
+      title: 'AI -AGENT Học Viện Công Nghệ Trí Tuệ Nhân Tạo Phượng Hoàng Lửa',
+      bio: 'Đội ngũ chuyên gia tư vấn chuyển đổi số tự động hóa cho các tập đoàn bán lẻ, thương mại điện tử và giáo dục.'
     },
     features: [
       'Làm chủ n8n tự host bảo mật thông tin nội bộ',
@@ -1114,7 +1114,7 @@ export const FREE_GIFTS: FreeGift[] = [
     format: 'Notion Workspace + Excel',
     badge: 'Khuyên dùng ★',
     thumbnail: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80',
-    author: 'Hoàng Hải Long'
+    author: 'Team Phượng Hoàng Lửa'
   },
   {
     id: 'gift-3',
