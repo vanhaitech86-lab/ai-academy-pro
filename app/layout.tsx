@@ -6,6 +6,7 @@ import { AuthProvider } from '@/lib/auth-context';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import ChatWidget from '@/components/chatbot/ChatWidget';
+import FloatingZalo from '@/components/layout/FloatingZalo';
 
 const inter = Inter({
   subsets: ['latin', 'vietnamese'],
@@ -39,6 +40,7 @@ export default function RootLayout({
               {children}
             </main>
             <Footer />
+            <FloatingZalo />
             <ChatWidget />
           </CartProvider>
         </AuthProvider>

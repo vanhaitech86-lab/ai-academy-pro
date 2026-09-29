@@ -92,6 +92,58 @@ export default function FreeGiftsPage() {
         </div>
       </div>
 
+      {/* Zalo VIP Group Banner */}
+      <div className="mb-14 rounded-3xl bg-gradient-to-r from-blue-950/80 via-slate-900 to-indigo-950/80 border border-blue-500/40 p-6 sm:p-8 backdrop-blur-xl shadow-2xl relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+          <div className="flex-1 text-center md:text-left space-y-3">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-500/20 border border-blue-400/30 text-xs font-bold text-blue-300">
+              <Sparkles className="w-3.5 h-3.5 text-cyan-300" />
+              <span>Cộng Đồng Học Viên VIP Zalo</span>
+            </div>
+
+            <h2 className="text-2xl sm:text-3xl font-black text-white">
+              Nhóm Quà Tặng Skill - Tool AI (Zalo)
+            </h2>
+
+            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-xl">
+              Quét mã QR bên cạnh bằng ứng dụng Zalo trên điện thoại để tham gia nhóm nhận tài liệu, prompt độc quyền cập nhật mỗi ngày và được chăm sóc, hỗ trợ kỹ thuật 1-1 từ đội ngũ chuyên gia.
+            </p>
+
+            <div className="pt-2 flex flex-wrap items-center justify-center md:justify-start gap-4">
+              <a
+                href="https://zaloapp.com/qr/g/apptijq8h3nfkdg5oaju?src=qr"
+                target="_blank"
+                rel="noreferrer"
+                className="px-6 py-3 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 hover:opacity-95 text-white font-extrabold text-xs sm:text-sm flex items-center gap-2 shadow-lg shadow-blue-500/30 transition-all hover:scale-[1.02]"
+              >
+                <span>Tham Gia Nhóm Zalo Ngay</span>
+                <ArrowRight className="w-4 h-4" />
+              </a>
+
+              <span className="text-xs text-slate-400">
+                Miễn phí tham gia · Hỗ trợ 24/7
+              </span>
+            </div>
+          </div>
+
+          {/* QR Image Card */}
+          <div className="shrink-0 flex flex-col items-center">
+            <div className="p-3 bg-white rounded-2xl shadow-2xl border-2 border-blue-400/60 transition-transform duration-300 hover:scale-105">
+              <img
+                src="/images/zalo-group-qr.png"
+                alt="Mã QR Nhóm Zalo Quà Tặng Skill - Tool AI"
+                className="w-48 sm:w-52 h-auto rounded-xl object-contain"
+              />
+            </div>
+            <span className="mt-2 text-[11px] font-semibold text-blue-300">
+              Quét bằng Zalo trên điện thoại
+            </span>
+          </div>
+        </div>
+      </div>
+
       {/* Gifts Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {filteredGifts.map((gift) => (
@@ -255,6 +307,30 @@ export default function FreeGiftsPage() {
                     <Download className="w-4 h-4" />
                     <span>Tải File / Mở Notion Template Ngay</span>
                   </a>
+
+                  {/* Zalo Care Group Callout */}
+                  <div className="p-3.5 rounded-2xl bg-blue-950/70 border border-blue-500/40 flex items-center gap-3 text-left">
+                    <img
+                      src="/images/zalo-group-qr.png"
+                      alt="Nhóm Zalo"
+                      className="w-16 h-16 rounded-xl object-contain bg-white p-1 shrink-0 shadow-md"
+                    />
+                    <div className="flex-1 min-w-0">
+                      <p className="text-xs font-bold text-white leading-tight">Nhóm Zalo Quà Tặng & Chăm Sóc</p>
+                      <p className="text-[11px] text-slate-300 line-clamp-2 mt-0.5">
+                        Quét mã Zalo để nhận cập nhật quà tặng mới mỗi tuần và được hỗ trợ 1-1.
+                      </p>
+                      <a
+                        href="https://zaloapp.com/qr/g/apptijq8h3nfkdg5oaju?src=qr"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-xs font-bold text-cyan-300 hover:text-cyan-200 hover:underline mt-1 inline-flex items-center gap-1"
+                      >
+                        <span>Vào nhóm Zalo ngay</span>
+                        <ExternalLink className="w-3 h-3" />
+                      </a>
+                    </div>
+                  </div>
 
                   <button
                     onClick={() => setClaimingGift(null)}

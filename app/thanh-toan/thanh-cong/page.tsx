@@ -83,6 +83,57 @@ function PaymentSuccessContent() {
             </div>
           </div>
 
+          {/* Zalo Customer Care Group Section */}
+          <div className="mt-8 p-6 rounded-3xl bg-gradient-to-r from-blue-950/80 via-slate-900 to-indigo-950/80 border border-blue-500/40 text-center shadow-xl">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 text-blue-300 text-xs font-bold mb-3">
+              <Sparkles className="w-3.5 h-3.5 text-cyan-300" />
+              <span>Bước tiếp theo: Tham gia nhóm Zalo chăm sóc</span>
+            </div>
+
+            <h3 className="text-lg sm:text-xl font-bold text-white">
+              Nhóm Zalo Quà Tặng Skill - Tool AI
+            </h3>
+
+            <p className="mt-1.5 text-xs sm:text-sm text-slate-300 max-w-md mx-auto">
+              Quét mã QR dưới đây bằng ứng dụng Zalo hoặc bấm vào nút để vào nhóm nhận quà tặng, kích hoạt tài khoản và được hỗ trợ kỹ thuật 1-1:
+            </p>
+
+            <div className="mt-5 flex flex-col sm:flex-row items-center justify-center gap-6">
+              <div className="p-3 bg-white rounded-2xl shadow-2xl border-2 border-blue-400">
+                <img
+                  src="/images/zalo-group-qr.png"
+                  alt="Mã QR Nhóm Zalo Chăm Sóc"
+                  className="w-44 h-auto rounded-xl object-contain mx-auto"
+                />
+              </div>
+
+              <div className="space-y-3 text-left">
+                <div className="flex items-center gap-2 text-xs text-slate-200">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400" />
+                  <span>Kích hoạt tài khoản và link tải skill tức thì</span>
+                </div>
+                <div className="flex items-center gap-2 text-xs text-slate-200">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400" />
+                  <span>Nhận kho quà tặng prompt & tool AI miễn phí</span>
+                </div>
+                <div className="flex items-center gap-2 text-xs text-slate-200">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400" />
+                  <span>Được chuyên viên hỗ trợ thực hành 1-1 trọn đời</span>
+                </div>
+
+                <a
+                  href="https://zaloapp.com/qr/g/apptijq8h3nfkdg5oaju?src=qr"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 hover:opacity-95 text-white font-extrabold text-xs shadow-lg shadow-blue-500/30 transition-all hover:scale-[1.02]"
+                >
+                  <span>Vào Nhóm Zalo Chăm Sóc Ngay</span>
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+              </div>
+            </div>
+          </div>
+
           {/* Action buttons */}
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link

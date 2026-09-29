@@ -152,12 +152,12 @@ export default function SkillAiPage() {
                 Xem các gói Combo tiết kiệm →
               </a>
               <a
-                href="https://zalo.me/0978076936"
+                href="https://zaloapp.com/qr/g/apptijq8h3nfkdg5oaju?src=qr"
                 target="_blank"
                 rel="noreferrer"
-                className="px-5 py-2.5 rounded-full border border-white/15 bg-white/5 hover:bg-white/10 text-white text-xs font-semibold transition"
+                className="px-5 py-2.5 rounded-full border border-blue-400/40 bg-blue-600/20 hover:bg-blue-600/30 text-white text-xs font-semibold transition"
               >
-                Hỏi nhanh qua Zalo
+                Nhóm Zalo Chăm Sóc VIP →
               </a>
             </div>
           </div>
@@ -326,7 +326,7 @@ export default function SkillAiPage() {
               </li>
             </ul>
             <a
-              href="https://zalo.me/0978076936"
+              href="https://zaloapp.com/qr/g/apptijq8h3nfkdg5oaju?src=qr"
               target="_blank"
               rel="noreferrer"
               className="mt-6 block w-full rounded-full bg-brand-gradient py-3 text-center text-xs font-bold text-white shadow-brand transition hover:opacity-95 hover:scale-[1.02]"
@@ -368,7 +368,7 @@ export default function SkillAiPage() {
               </li>
             </ul>
             <a
-              href="https://zalo.me/0978076936"
+              href="https://zaloapp.com/qr/g/apptijq8h3nfkdg5oaju?src=qr"
               target="_blank"
               rel="noreferrer"
               className="mt-6 block w-full rounded-full bg-brand-gradient py-3 text-center text-xs font-bold text-white shadow-brand transition hover:opacity-95 hover:scale-[1.02]"
@@ -419,12 +419,12 @@ export default function SkillAiPage() {
               </li>
             </ul>
             <a
-              href="https://zalo.me/0978076936"
+              href="https://zaloapp.com/qr/g/apptijq8h3nfkdg5oaju?src=qr"
               target="_blank"
               rel="noreferrer"
-              className="mt-6 block w-full rounded-full bg-gradient-to-r from-amber-400 to-amber-500 py-3 text-center text-xs font-extrabold text-slate-950 shadow-lg transition hover:scale-[1.02]"
+              className="mt-6 block w-full rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 py-3 text-center text-xs font-extrabold text-white shadow-lg transition hover:scale-[1.02]"
             >
-              Liên hệ với chúng tôi qua Zalo →
+              Tham gia Nhóm Zalo Chăm Sóc & Tư Vấn →
             </a>
           </div>
         </div>
@@ -433,29 +433,42 @@ export default function SkillAiPage() {
       {/* Modal: "Đã mua rồi?" */}
       {showPurchasedModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
-          <div className="w-full max-w-md rounded-3xl border border-white/10 bg-slate-900 p-6 shadow-2xl">
-            <h4 className="text-lg font-bold text-white">Tra cứu Skill đã mua</h4>
+          <div className="w-full max-w-md rounded-3xl border border-blue-500/30 bg-slate-900 p-6 shadow-2xl text-center">
+            <h4 className="text-lg font-bold text-white">Tra cứu & Kích hoạt Skill</h4>
             <p className="mt-2 text-xs text-slate-300 leading-relaxed">
-              Bạn đã mua <strong>{showPurchasedModal}</strong>? Bạn có thể đăng nhập vào trang tài khoản để lấy link tải hoặc nhắn tin Zalo hỗ trợ kỹ thuật tức thì:
+              Bạn đã mua <strong>{showPurchasedModal}</strong>? Quét mã Zalo dưới đây để tham gia nhóm chăm sóc nhận link tải file hoặc đăng nhập tài khoản học viên:
             </p>
-            <div className="mt-5 space-y-2.5">
+
+            {/* QR Code */}
+            <div className="my-4 p-3 bg-white rounded-2xl shadow-xl inline-block border-2 border-blue-400">
+              <img
+                src="/images/zalo-group-qr.png"
+                alt="Mã QR Nhóm Zalo Quà Tặng Skill - Tool AI"
+                className="w-48 h-auto rounded-xl object-contain mx-auto"
+              />
+              <span className="block mt-1 text-[11px] font-bold text-slate-800">
+                Nhóm Quà Tặng Skill - Tool AI
+              </span>
+            </div>
+
+            <div className="mt-2 space-y-2">
+              <a
+                href="https://zaloapp.com/qr/g/apptijq8h3nfkdg5oaju?src=qr"
+                target="_blank"
+                rel="noreferrer"
+                className="block w-full rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 py-2.5 text-center text-xs font-bold text-white shadow-lg hover:opacity-95"
+              >
+                Vào Nhóm Zalo Hỗ Trợ 1-1 Ngay
+              </a>
               <Link
                 href="/dang-nhap"
                 className="block w-full rounded-full bg-brand-gradient py-2.5 text-center text-xs font-bold text-white shadow-brand"
               >
                 Đăng nhập tài khoản học viên
               </Link>
-              <a
-                href="https://zalo.me/0978076936"
-                target="_blank"
-                rel="noreferrer"
-                className="block w-full rounded-full border border-white/10 bg-white/5 py-2.5 text-center text-xs font-semibold text-slate-300 hover:text-white"
-              >
-                Hỗ trợ Zalo: 0978076936
-              </a>
               <button
                 onClick={() => setShowPurchasedModal(null)}
-                className="block w-full py-2 text-center text-xs text-slate-500 hover:text-slate-400"
+                className="block w-full py-2 text-center text-xs text-slate-400 hover:text-slate-300"
               >
                 Đóng cửa sổ
               </button>

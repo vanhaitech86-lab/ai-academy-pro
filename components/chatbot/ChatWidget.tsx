@@ -282,13 +282,13 @@ export default function ChatWidget() {
                 Cần người thật hỗ trợ?
               </span>
               <a
-                href="https://zalo.me/0988888999"
+                href="https://zaloapp.com/qr/g/apptijq8h3nfkdg5oaju?src=qr"
                 target="_blank"
                 rel="noreferrer"
                 className="text-cyan-400 hover:underline flex items-center gap-1 font-semibold"
               >
                 <PhoneCall className="w-3 h-3" />
-                Chat Zalo 1-1
+                Nhóm Zalo Chăm Sóc
               </a>
             </div>
           </div>
