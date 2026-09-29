@@ -6,10 +6,10 @@ export default function MarqueeTools() {
   const tools = [...AI_PARTNER_LOGOS, ...AI_PARTNER_LOGOS];
 
   return (
-    <div className="relative py-8 bg-slate-950/60 border-y border-white/5 overflow-hidden">
+    <div className="relative py-8 bg-[#111c35]/40 border-y border-white/10 overflow-hidden backdrop-blur-md">
       {/* Gradient masks for edge fade */}
-      <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#0b0f1a] to-transparent z-10 pointer-events-none" />
-      <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#0b0f1a] to-transparent z-10 pointer-events-none" />
+      <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#0d1527] to-transparent z-10 pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#0d1527] to-transparent z-10 pointer-events-none" />
 
       <div className="flex items-center gap-4">
         <div className="shrink-0 pl-6 pr-4 hidden md:flex items-center gap-2 text-xs font-semibold text-slate-400 uppercase tracking-widest border-r border-white/10">

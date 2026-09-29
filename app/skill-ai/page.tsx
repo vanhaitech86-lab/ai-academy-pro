@@ -12,7 +12,7 @@ import {
   Zap, 
   Briefcase, 
   Check, 
-  ShoppingBag, 
+  ShoppingCart, 
   Camera,
   ChevronDown
 } from 'lucide-react';

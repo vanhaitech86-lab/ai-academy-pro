@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { TOOLS } from '@/lib/data';
 import { formatVND } from '@/lib/sepay';
 import { useCart } from '@/lib/cart-context';
-import { Cpu, Star, ShoppingBag, Zap, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { Cpu, Star, ShoppingCart, Zap, ArrowRight, CheckCircle2 } from 'lucide-react';
 
 export default function CongCuAiPage() {
   const { addToCart } = useCart();
@@ -72,7 +72,7 @@ export default function CongCuAiPage() {
                   className="p-3 rounded-xl bg-white/5 hover:bg-white/10 text-white transition-colors"
                   title="Thêm giỏ"
                 >
-                  <ShoppingBag className="w-4 h-4 text-cyan-400" />
+                  <ShoppingCart className="w-4 h-4 text-cyan-400" />
                 </button>
                 <Link
                   href={`/cong-cu-ai/${tool.slug}`}

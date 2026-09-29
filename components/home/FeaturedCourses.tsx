@@ -10,7 +10,7 @@ import {
   Star, 
   Clock, 
   BookOpen, 
-  ShoppingBag, 
+  ShoppingCart, 
   Check, 
   ArrowRight,
   Flame,
@@ -47,7 +47,7 @@ export default function FeaturedCourses() {
   };
 
   return (
-    <section className="py-20 relative bg-slate-950/40">
+    <section className="py-20 relative bg-[#0f1b33]/40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
@@ -202,7 +202,7 @@ export default function FeaturedCourses() {
                             </>
                           ) : (
                             <>
-                              <ShoppingBag className="w-3.5 h-3.5" />
+                              <ShoppingCart className="w-3.5 h-3.5" />
                               <span>Thêm giỏ</span>
                             </>
                           )}

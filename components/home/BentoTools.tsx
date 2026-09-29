@@ -8,7 +8,7 @@ import { Cpu, CheckCircle2, ArrowRight, Sparkles, ExternalLink, Zap } from 'luci
 
 export default function BentoTools() {
   return (
-    <section className="py-20 relative bg-slate-950/60">
+    <section className="py-20 relative bg-[#0f1b33]/40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-500/10 border border-pink-500/20 text-xs font-semibold text-pink-300 uppercase tracking-widest mb-3">

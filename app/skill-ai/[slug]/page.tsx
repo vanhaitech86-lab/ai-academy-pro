@@ -9,7 +9,7 @@ import { useCart } from '@/lib/cart-context';
 import { 
   Star, 
   CheckCircle2, 
-  ShoppingBag, 
+  ShoppingCart, 
   Zap, 
   Layers, 
   ShieldCheck, 
@@ -118,7 +118,7 @@ export default function SkillDetailPage({
                 onClick={() => addToCart(skill)}
                 className="w-full py-3 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 text-white font-semibold text-sm flex items-center justify-center gap-2"
               >
-                <ShoppingBag className="w-4 h-4 text-cyan-400" />
+                <ShoppingCart className="w-4 h-4 text-cyan-400" />
                 <span>Thêm vào giỏ</span>
               </button>
             </div>

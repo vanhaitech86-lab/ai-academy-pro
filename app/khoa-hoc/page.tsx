@@ -11,7 +11,7 @@ import {
   Clock, 
   BookOpen, 
   Star, 
-  ShoppingBag, 
+  ShoppingCart, 
   Check, 
   SlidersHorizontal 
 } from 'lucide-react';
@@ -219,7 +219,7 @@ export default function CoursesPage() {
                               : 'bg-gradient-to-r from-purple-600 to-cyan-600 text-white'
                           }`}
                         >
-                          {isAdded ? <Check className="w-3.5 h-3.5" /> : <ShoppingBag className="w-3.5 h-3.5" />}
+                          {isAdded ? <Check className="w-3.5 h-3.5" /> : <ShoppingCart className="w-3.5 h-3.5" />}
                           <span>{isAdded ? 'Đã thêm' : 'Thêm giỏ'}</span>
                         </button>
                       </div>

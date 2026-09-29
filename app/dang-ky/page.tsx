@@ -109,7 +109,7 @@ export default function RegisterPage() {
           {/* Brand Header */}
           <div className="text-center mb-6">
             <Link href="/" className="inline-flex items-center gap-2.5 mb-3">
-              <div className="w-10 h-10 rounded-xl overflow-hidden shadow-lg shadow-amber-500/30 border border-amber-400/50 shrink-0 bg-[#0b0f1a]">
+              <div className="w-10 h-10 rounded-xl overflow-hidden shadow-lg shadow-amber-500/30 border border-amber-400/50 shrink-0 bg-[#131d35]">
                 <img
                   src="/images/logo-phuong-hoang.png"
                   alt="AI Academy Pro - Phượng Hoàng Lửa"

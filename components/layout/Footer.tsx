@@ -4,17 +4,17 @@ import { Flame, Mail, Phone, MapPin, ShieldCheck, QrCode, Heart, ArrowUpRight } 
 
 export default function Footer() {
   return (
-    <footer className="relative bg-[#070a12] border-t border-white/10 pt-16 pb-12 overflow-hidden">
+    <footer className="relative bg-[#0a1122]/90 backdrop-blur-xl border-t border-white/10 pt-16 pb-12 overflow-hidden">
       {/* Background ambient lighting */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-cyan-600/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-600/15 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-cyan-600/15 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/10">
           {/* Col 1: Brand Info */}
           <div className="lg:col-span-2 space-y-4">
             <Link href="/" className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl overflow-hidden shadow-lg shadow-amber-500/30 border border-amber-400/50 shrink-0 bg-[#0b0f1a]">
+              <div className="w-10 h-10 rounded-xl overflow-hidden shadow-lg shadow-amber-500/30 border border-amber-400/50 shrink-0 bg-[#131d35]">
                 <img
                   src="/images/logo-phuong-hoang.png"
                   alt="AI Academy Pro - Phượng Hoàng Lửa"

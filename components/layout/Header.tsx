@@ -7,7 +7,7 @@ import { useCart } from '@/lib/cart-context';
 import { useAuth } from '@/lib/auth-context';
 import { 
   Sparkles, 
-  ShoppingBag, 
+  ShoppingCart, 
   Search, 
   Menu, 
   X, 
@@ -19,6 +19,7 @@ import {
   Wand2, 
   Tag, 
   Gift, 
+  Share2,
   LogOut,
   LogIn
 } from 'lucide-react';
@@ -45,6 +46,7 @@ export default function Header() {
     { name: 'Skill AI', href: '/skill-ai', icon: Wand2 },
     { name: 'Công cụ AI', href: '/cong-cu-ai', icon: Cpu },
     { name: 'Quà tặng', href: '/qua-tang', icon: Gift, badge: 'FREE' },
+    { name: 'Affiliate', href: '/affiliate', icon: Share2, badge: 'HOT' },
     { name: 'Bảng giá', href: '/bang-gia', icon: Tag },
     { name: 'Quản trị', href: '/admin', icon: Sparkles },
   ];
@@ -62,7 +64,7 @@ export default function Header() {
           <div className="flex items-center justify-between">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-3 group">
-              <div className="relative w-10 h-10 rounded-xl overflow-hidden shadow-lg shadow-amber-500/30 transition-transform duration-300 group-hover:scale-105 border border-amber-400/50 shrink-0 bg-[#0b0f1a]">
+              <div className="relative w-10 h-10 rounded-xl overflow-hidden shadow-lg shadow-amber-500/30 transition-transform duration-300 group-hover:scale-105 border border-amber-400/50 shrink-0 bg-[#131d35]">
                 <img
                   src="/images/logo-phuong-hoang.png"
                   alt="AI Academy Pro - Phượng Hoàng Lửa"
@@ -121,7 +123,7 @@ export default function Header() {
                 className="relative p-2 rounded-lg text-slate-300 hover:text-white hover:bg-white/5 transition-colors"
                 title="Giỏ hàng"
               >
-                <ShoppingBag className="w-5 h-5" />
+                <ShoppingCart className="w-5 h-5" />
                 {totalItems > 0 && (
                   <span className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 text-white text-[11px] font-bold flex items-center justify-center animate-bounce shadow-lg shadow-purple-500/50">
                     {totalItems}
@@ -209,7 +211,7 @@ export default function Header() {
 
         {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (
-          <div className="md:hidden fixed inset-x-0 top-[73px] bg-[#0b0f1a]/95 backdrop-blur-2xl border-b border-white/10 px-4 py-6 space-y-3 shadow-2xl max-h-[85vh] overflow-y-auto">
+          <div className="md:hidden fixed inset-x-0 top-[73px] bg-[#0d1527]/98 backdrop-blur-2xl border-b border-white/10 px-4 py-6 space-y-3 shadow-2xl max-h-[85vh] overflow-y-auto">
             {navLinks.map((link) => {
               const Icon = link.icon;
               return (

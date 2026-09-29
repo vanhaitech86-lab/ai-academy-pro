@@ -18,13 +18,15 @@ export default function HeroSection() {
         {/* Floating badge */}
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel border border-cyan-500/30 text-xs sm:text-sm font-semibold text-cyan-300 mb-8 shadow-[0_0_25px_-5px_rgba(6,182,212,0.4)] animate-pulse-glow">
           <Sparkles className="w-4 h-4 text-amber-400" />
-          <span>Kỷ Nguyên GenAI 2025 · Tự Động Hóa Đỉnh Cao</span>
+          <span>Kỷ Nguyên AI - AGI tự động hóa đỉnh cao</span>
         </div>
 
-        {/* Main Catchy Heading */}
-        <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white max-w-5xl mx-auto leading-[1.15]">
-          Làm Chủ AI – <br className="hidden sm:inline" />
-          <span className="gradient-text-neon">Tăng Tốc Công Việc</span> Gấp 10 Lần
+        {/* Main Catchy Heading in strictly 2 Lines */}
+        <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[4.5rem] font-black tracking-tight text-white max-w-6xl mx-auto leading-[1.2]">
+          <span className="block">Làm Chủ AI –</span>
+          <span className="block mt-1 sm:mt-3 bg-gradient-to-r from-cyan-300 via-teal-200 to-amber-300 bg-clip-text text-transparent drop-shadow-[0_0_35px_rgba(6,182,212,0.35)] whitespace-nowrap">
+            Tăng Tốc Công Việc Gấp 10 Lần
+          </span>
         </h1>
 
 

@@ -55,7 +55,7 @@ export default function WhyChooseUs() {
   ];
 
   return (
-    <section className="py-20 relative bg-slate-950/40">
+    <section className="py-20 relative bg-[#0f1b33]/40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-xs font-semibold text-purple-400 uppercase tracking-widest px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20">

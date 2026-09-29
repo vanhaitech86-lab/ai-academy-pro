@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 import { useCart } from '@/lib/cart-context';
 import { formatVND } from '@/lib/sepay';
 import { 
-  ShoppingBag, 
+  ShoppingCart, 
   Trash2, 
   ArrowRight, 
   Tag, 
@@ -50,7 +50,7 @@ export default function CartPage() {
     return (
       <div className="pt-32 pb-24 max-w-3xl mx-auto px-4 text-center">
         <div className="w-20 h-20 rounded-full bg-slate-900 border border-white/10 flex items-center justify-center mx-auto mb-6 text-slate-400">
-          <ShoppingBag className="w-8 h-8" />
+          <ShoppingCart className="w-8 h-8 text-cyan-400" />
         </div>
         <h1 className="text-2xl sm:text-3xl font-extrabold text-white">Giỏ hàng của bạn đang trống</h1>
         <p className="mt-3 text-slate-400 text-sm">

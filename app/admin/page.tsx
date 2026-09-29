@@ -7,7 +7,7 @@ import { formatVND } from '@/lib/sepay';
 import { useAuth, AuthUser } from '@/lib/auth-context';
 import { 
   BarChart3, 
-  ShoppingBag, 
+  ShoppingCart, 
   Users, 
   BookOpen, 
   Layers, 
@@ -133,7 +133,7 @@ export default function AdminPage() {
   const stats = [
     { title: 'Tổng Khách Hàng / Học Viên', value: `${customers.length} thành viên`, change: 'Dữ liệu thực', icon: Users, color: 'text-purple-400' },
     { title: 'Doanh thu tháng này', value: '185.450.000 ₫', change: '+24.5%', icon: BarChart3, color: 'text-emerald-400' },
-    { title: 'Tổng số đơn hàng', value: '246 đơn', change: '+18.2%', icon: ShoppingBag, color: 'text-cyan-400' },
+    { title: 'Tổng số đơn hàng', value: '246 đơn', change: '+18.2%', icon: ShoppingCart, color: 'text-cyan-400' },
     { title: 'Tỷ lệ thanh toán tự động', value: '98.8%', change: 'SePay VietQR', icon: ShieldCheck, color: 'text-amber-400' },
   ];
 

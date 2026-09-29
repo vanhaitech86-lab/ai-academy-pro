@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 import { TOOLS } from '@/lib/data';
 import { formatVND } from '@/lib/sepay';
 import { useCart } from '@/lib/cart-context';
-import { Star, CheckCircle2, ShoppingBag, Zap, Cpu, ArrowLeft, ExternalLink } from 'lucide-react';
+import { Star, CheckCircle2, ShoppingCart, Zap, Cpu, ArrowLeft, ExternalLink } from 'lucide-react';
 
 export default function ToolDetailPage({
   params,
@@ -95,7 +95,7 @@ export default function ToolDetailPage({
                 onClick={() => addToCart(tool)}
                 className="w-full py-3 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 text-white font-semibold text-sm flex items-center justify-center gap-2"
               >
-                <ShoppingBag className="w-4 h-4 text-pink-400" />
+                <ShoppingCart className="w-4 h-4 text-pink-400" />
                 <span>Thêm vào giỏ</span>
               </button>
             </div>

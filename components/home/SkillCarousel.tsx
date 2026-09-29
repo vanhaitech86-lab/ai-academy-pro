@@ -12,7 +12,7 @@ import {
   Zap, 
   Briefcase, 
   Check, 
-  ShoppingBag, 
+  ShoppingCart, 
   Camera
 } from 'lucide-react';
 
@@ -110,7 +110,7 @@ export default function SkillCarousel() {
   );
 
   return (
-    <section className="relative overflow-hidden py-20 bg-slate-950/60" id="kho-skill">
+    <section className="relative overflow-hidden py-20 bg-[#0f1b33]/40" id="kho-skill">
       {/* Aurora Ambient Background Blobs */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 overflow-hidden opacity-60">
         <div className="absolute -left-[10%] -top-[10%] h-[38rem] w-[38rem] rounded-full bg-pink-600/20 blur-[130px] animate-pulse-glow" />

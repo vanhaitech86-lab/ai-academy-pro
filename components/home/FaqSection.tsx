@@ -12,7 +12,7 @@ export default function FaqSection() {
   };
 
   return (
-    <section id="faq" className="py-20 relative bg-slate-950/40">
+    <section id="faq" className="py-20 relative bg-[#0f1b33]/40">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-xs font-semibold text-cyan-300 uppercase tracking-widest mb-3">
