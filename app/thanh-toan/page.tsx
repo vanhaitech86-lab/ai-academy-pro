@@ -219,26 +219,36 @@ function CheckoutContent() {
             </div>
 
             {/* QR Image & Instructions */}
-            <div className="flex flex-col sm:flex-row items-center gap-6 p-6 rounded-2xl bg-slate-950/80 border border-white/10">
-              <div className="relative w-52 h-52 sm:w-60 sm:h-60 rounded-2xl overflow-hidden bg-white p-2 border-2 border-cyan-400 shadow-lg shadow-cyan-400/20 shrink-0">
-                <img
-                  src={qrImageUrl}
-                  alt="VietQR SePay"
-                  className="w-full h-full object-contain"
-                />
-              </div>
+            <div className="p-6 rounded-2xl bg-slate-950/80 border border-white/10 space-y-4">
+              <div className="flex flex-col sm:flex-row items-center gap-6">
+                <div className="relative w-56 h-64 sm:w-60 sm:h-72 rounded-2xl overflow-hidden bg-white p-2.5 border-2 border-cyan-400 shadow-lg shadow-cyan-400/20 shrink-0 flex flex-col items-center justify-between">
+                  <div className="w-full flex items-center justify-between px-2 pt-1 text-[11px] font-bold text-red-600 border-b border-slate-100 pb-1">
+                    <span>TECHCOMBANK</span>
+                    <span className="text-slate-600 font-mono">6688991971</span>
+                  </div>
+                  <img
+                    src="/images/qr-techcombank.png"
+                    alt="Techcombank QR PHAN THI HAI YEN"
+                    className="w-full h-full max-h-56 object-contain"
+                  />
+                  <div className="text-[10px] font-bold text-slate-800 text-center w-full bg-slate-50 py-0.5 rounded">
+                    PHAN THI HAI YEN
+                  </div>
+                </div>
 
-              <div className="space-y-3 text-xs sm:text-sm text-slate-300">
-                <h3 className="font-bold text-white text-base flex items-center gap-2">
-                  <QrCode className="w-5 h-5 text-cyan-400" />
-                  <span>Hướng dẫn quét mã</span>
-                </h3>
-                <ol className="list-decimal list-inside space-y-2 text-slate-400">
-                  <li>Mở ứng dụng ngân hàng bất kỳ (MB, Vietcombank, Techcombank, Momo...)</li>
-                  <li>Chọn tính năng <strong>Quét mã QR</strong></li>
-                  <li>Kiểm tra số tiền và nội dung chuyển khoản <strong>trùng khớp</strong></li>
-                  <li>Bấm xác nhận chuyển khoản</li>
-                </ol>
+                <div className="space-y-3 text-xs sm:text-sm text-slate-300">
+                  <h3 className="font-bold text-white text-base flex items-center gap-2">
+                    <QrCode className="w-5 h-5 text-cyan-400" />
+                    <span>Hướng dẫn quét mã Techcombank</span>
+                  </h3>
+                  <ol className="list-decimal list-inside space-y-2 text-slate-300">
+                    <li>Mở app ngân hàng bất kỳ (Techcombank, Vietcombank, MB, Momo, v.v.)</li>
+                    <li>Chọn tính năng <strong>Quét mã QR</strong> trên ứng dụng</li>
+                    <li>Kiểm tra người nhận là: <strong className="text-amber-300">PHAN THI HAI YEN</strong></li>
+                    <li>Nhập số tiền: <strong className="text-emerald-400">{formatVND(payableAmount)}</strong></li>
+                    <li>Nội dung chuyển khoản nhập đúng: <strong className="text-cyan-300 font-mono">{orderCode}</strong></li>
+                  </ol>
+                </div>
               </div>
             </div>
 
@@ -246,10 +256,24 @@ function CheckoutContent() {
             <div className="space-y-3 text-sm">
               <div className="flex items-center justify-between p-3.5 rounded-xl bg-slate-950 border border-white/10">
                 <div>
-                  <span className="text-xs text-slate-400 block">Ngân hàng</span>
+                  <span className="text-xs text-slate-400 block">Ngân hàng thụ hưởng</span>
                   <span className="font-bold text-white">{SEPAY_CONFIG.bankName}</span>
                 </div>
                 <Building className="w-5 h-5 text-cyan-400" />
+              </div>
+
+              <div className="flex items-center justify-between p-3.5 rounded-xl bg-slate-950 border border-white/10">
+                <div>
+                  <span className="text-xs text-slate-400 block">Chủ tài khoản</span>
+                  <span className="font-bold text-amber-300 uppercase tracking-wide">{SEPAY_CONFIG.accountHolder}</span>
+                </div>
+                <button
+                  onClick={() => copyToClipboard(SEPAY_CONFIG.accountHolder, 'holder')}
+                  className="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white transition-colors"
+                  title="Sao chép tên chủ tài khoản"
+                >
+                  {isCopied['holder'] ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
+                </button>
               </div>
 
               <div className="flex items-center justify-between p-3.5 rounded-xl bg-slate-950 border border-white/10">

@@ -22,10 +22,13 @@ export interface Product {
   price: number;
   salePrice: number;
   thumbnail: string;
-  badge?: 'Bán chạy' | 'Mới' | 'Hot' | 'Pro' | 'Miễn phí thử';
+  badge?: string;
   category: string;
   rating: number;
   reviewCount: number;
+  license?: string;
+  stars?: string;
+  hall?: string;
   level?: 'Người mới bắt đầu' | 'Trung cấp' | 'Chuyên sâu' | 'Mọi cấp độ';
   duration?: string;
   studentsCount?: number;
